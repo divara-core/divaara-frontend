@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>DIVAARA | Profile Intelligence</title>
+
+  <!-- LOGIC -->
+  <script defer src="profile.js"></script>
+</head>
+
+<body class="bg-black text-white min-h-screen flex items-center justify-center p-4">
+
+<div class="max-w-xl w-full p-6 bg-white/5 rounded-2xl border border-white/10 shadow-2xl">
+
+  <h1 class="text-2xl font-serif text-[#D4AF37] mb-1">
+    Your Style Intelligence
+  </h1>
+  <p class="text-xs text-gray-400 mb-6">
+    Personalized analysis based on your body & skin profile
+  </p>
+
+  <div id="confidence-warning"
+       class="hidden mb-6 text-xs text-yellow-400 border border-yellow-500/30 rounded-lg p-3 bg-yellow-500/10">
+    ⚠️ Some measurements were taken with reduced confidence.
+  </div>
+
+  <div class="grid grid-cols-2 gap-4 mb-8">
+      
+      <div class="bg-white/5 rounded-xl p-4 border border-white/5">
+        <h2 class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Body Shape</h2>
+        <p class="text-lg font-semibold capitalize" id="body-shape">—</p>
+        <p class="text-[10px] text-gray-500 mt-1" id="body-confidence">—</p>
+      </div>
+
+      <div class="bg-white/5 rounded-xl p-4 border border-white/5 flex flex-col justify-center">
+        <h2 class="text-[10px] uppercase tracking-wider text-gray-400 mb-2">Skin Tone</h2>
+        <div class="flex items-center gap-3">
+            <div id="skin-swatch" class="w-8 h-8 rounded-full border border-white/20 shadow-inner"></div>
+            <div>
+                <p class="text-sm font-semibold capitalize leading-tight" id="skin-label">—</p>
+                <p class="text-[10px] text-gray-500" id="skin-undertone">—</p>
+            </div>
+        </div>
+      </div>
+  </div>
+
+  <hr class="border-white/10 mb-8">
+
+  <!-- COLOR PALETTE -->
+  <section id="dress-color-section" class="hidden">
+
+    <div class="flex justify-between items-end mb-6">
+        <h2 class="text-xl font-serif text-[#D4AF37]">
+          Your Color Palette
+        </h2>
+        <span id="season-badge"
+              class="text-xs font-bold uppercase tracking-wider px-2 py-1 rounded bg-white/10 text-white/80">
+          —
+        </span>
+    </div>
+
+    <div class="mb-6">
+      <h3 class="text-xs uppercase tracking-wider mb-3 text-gray-400">
+        Power Colors
+      </h3>
+      <div id="bestColors" class="flex flex-wrap gap-3"></div>
+    </div>
+
+    <div class="mb-6">
+      <h3 class="text-xs uppercase tracking-wider mb-3 text-gray-400">
+        Neutrals & Basics
+      </h3>
+      <div id="neutralColors" class="flex flex-wrap gap-3"></div>
+    </div>
+
+    <div>
+      <h3 class="text-xs uppercase tracking-wider mb-3 text-red-400/80">
+        Use Carefully
+      </h3>
+      <div id="avoidColors"
+           class="flex flex-wrap gap-3 opacity-60 grayscale hover:grayscale-0 transition-all">
+      </div>
+    </div>
+
+  </section>
+
+  <p class="text-[11px] text-gray-500 text-center mt-6">
+    Optimized for your <span id="ctaBodyShape" class="capitalize"></span> body shape
+  </p>
+
+  <button id="continueBtn" onclick="continueJourney()"
+          class="w-full mt-10 py-3.5 rounded-xl bg-[#D4AF37] hover:bg-[#b5952f] text-black font-bold tracking-wide transition-colors">
+    See Outfit Recommendations
+  </button>
+
+</div>
+
+</body>
+</html>

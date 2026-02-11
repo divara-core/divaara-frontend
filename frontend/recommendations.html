@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DIVAARA | Dress Recommendations</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="recommendations.js"></script>
+</head>
+
+<body class="bg-black text-white min-h-screen px-6 py-10">
+
+  <!-- HEADER -->
+  <h1 class="text-3xl font-serif text-[#D4AF37] mb-2">
+    Your Outfit Recommendations
+  </h1>
+  <p class="text-sm text-gray-400 mb-10">
+    Curated using your body shape & color profile
+  </p>
+
+  <!-- CONFIDENCE NOTE -->
+  <div id="confidence-note"
+       class="hidden mb-8 text-xs text-yellow-400 border border-yellow-500/30 rounded-lg p-3 bg-yellow-500/10">
+    These recommendations are best estimates based on scan confidence.
+  </div>
+
+  <!-- COLOR RECAP -->
+  <section class="mb-12">
+    <h2 class="text-xl mb-4 text-[#D4AF37]">Your Power Colors</h2>
+    <div id="colorChips" class="flex flex-wrap gap-3"></div>
+  </section>
+
+  <!-- OUTFIT RECOMMENDATIONS -->
+  <section class="space-y-6">
+
+    <div class="bg-white/5 border border-white/10 rounded-xl p-5">
+      <h3 class="text-lg font-semibold mb-2">Tops That Suit You</h3>
+      <p class="text-sm text-gray-400 mb-3" id="tops-note"></p>
+      <div id="tops-colors" class="flex gap-3"></div>
+    </div>
+
+    <div class="bg-white/5 border border-white/10 rounded-xl p-5">
+      <h3 class="text-lg font-semibold mb-2">Bottom Wear</h3>
+      <p class="text-sm text-gray-400 mb-3" id="bottoms-note"></p>
+      <div id="bottoms-colors" class="flex gap-3"></div>
+    </div>
+
+    <div class="bg-white/5 border border-white/10 rounded-xl p-5">
+      <h3 class="text-lg font-semibold mb-2">Complete Outfits</h3>
+      <p class="text-sm text-gray-400 mb-3" id="outfit-note"></p>
+      <div id="outfit-colors" class="flex gap-3"></div>
+    </div>
+
+    
+
+  </section>
+
+  <!-- ===============================
+     AFFILIATE SHOPPING SECTION
+================================ -->
+<section class="mt-16 border-t border-white/10 pt-10">
+
+  <h2 class="text-xl font-serif text-[#D4AF37] mb-2">
+    Shop These Looks
+  </h2>
+
+  <p class="text-sm text-gray-400 mb-6">
+    We’ll take you to curated results that match your body & color profile.
+  </p>
+
+  <!-- PLATFORM BUTTONS -->
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+
+    <button onclick="shop('myntra')"
+      class="py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition">
+      <span class="font-semibold">Myntra</span>
+      <p class="text-xs text-gray-400 mt-1">Best for fashion variety</p>
+    </button>
+
+    <button onclick="shop('amazon')"
+      class="py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition">
+      <span class="font-semibold">Amazon</span>
+      <p class="text-xs text-gray-400 mt-1">Fast delivery & brands</p>
+    </button>
+
+    <button onclick="shop('meesho')"
+      class="py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition">
+      <span class="font-semibold">Meesho</span>
+      <p class="text-xs text-gray-400 mt-1">Budget-friendly picks</p>
+    </button>
+
+  </div>
+
+  <!-- TRUST DISCLAIMER -->
+  <p class="text-[11px] text-gray-500 leading-relaxed">
+    DIVAARA may earn a small commission if you shop through these links.
+    This never affects our recommendations.
+  </p>
+
+</section>
+
+
+</body>
+</html>

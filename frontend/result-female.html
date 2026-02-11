@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>DIVAARA | Male Body Profile</title>
+</head>
+
+<body class="bg-black text-white min-h-screen flex items-center justify-center">
+
+<div class="max-w-md w-full p-6 bg-white/5 rounded-2xl border border-white/10">
+
+  <h1 class="text-2xl font-serif text-[#D4AF37] mb-4">Your Body Profile</h1>
+
+  <p id="shape" class="text-xl font-semibold mb-2"></p>
+  <p id="confidence" class="text-sm text-gray-400 mb-4"></p>
+
+  <div id="warning" class="hidden text-xs text-yellow-400 border border-yellow-500/30 rounded p-3 mb-4">
+    Results may vary slightly due to clothing or posture.
+  </div>
+
+  <button onclick="goNext()"
+          class="w-full mt-4 py-3 rounded-xl bg-[#D4AF37] text-black font-semibold">
+    Continue
+  </button>
+
+</div>
+
+<script>
+  const scan = JSON.parse(localStorage.getItem("divaara.scan"));
+  const lowConfidence = localStorage.getItem("divaara.low_confidence");
+
+  if (!scan) {
+    window.location.href = "index.html";
+  }
+
+  const { shoulder_hip, waist_hip } = scan.ratios;
+
+  let shape = "Athletic Rectangle";
+
+  // =========================
+  // MALE-SPECIFIC LOGIC
+  // =========================
+  if (shoulder_hip >= 1.15 && waist_hip >= 0.9) {
+    shape = "Inverted Triangle";
+  } else if (waist_hip < 0.9) {
+    shape = "Athletic Rectangle";
+  } else if (waist_hip >= 1.0) {
+    shape = "Oval";
+  } else {
+    shape = "Rectangle";
+  }
+
+  document.getElementById("shape").innerText = shape;
+  document.getElementById("confidence").innerText =
+    `Confidence: ${Math.round(scan.confidence * 100)}%`;
+
+  if (lowConfidence === "true") {
+    document.getElementById("warning").classList.remove("hidden");
+  }
+
+  function goNext() {
+    window.location.href = "profile.html";
+  }
+</script>
+
+</body>
+</html>
