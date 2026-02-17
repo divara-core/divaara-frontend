@@ -8,7 +8,7 @@ const lowConfidence = localStorage.getItem("divaara.low_confidence");
 
 if (!gender || (!bodyScanStr && !skinScanStr)) {
   window.location.href = "index.html";
-  return;
+  throw new Error("Missing scan data, redirecting...");
 }
 
 const bodyScan = JSON.parse(bodyScanStr || "{}");
