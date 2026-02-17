@@ -6,8 +6,9 @@ const bodyScanStr = localStorage.getItem("divaara.scan");
 const skinScanStr = localStorage.getItem("divaara.skin_scan");
 const lowConfidence = localStorage.getItem("divaara.low_confidence");
 
-if (!gender || !bodyScanStr) {
+if (!gender || (!bodyScanStr && !skinScanStr)) {
   window.location.href = "index.html";
+  return;
 }
 
 const bodyScan = JSON.parse(bodyScanStr || "{}");
@@ -26,17 +27,19 @@ if (lowConfidence === "true") {
   }
 }
 
-// Body
-document.getElementById("body-shape").innerText =
-  bodyScan.body_shape?.primary || "Unknown";
+// Body (only if body scan data exists)
+if (bodyScanStr) {
+  document.getElementById("body-shape").innerText =
+    bodyScan.body_shape?.primary || "Unknown";
 
-if (bodyScan.confidence) {
-  document.getElementById("body-confidence").innerText =
-    `AI Confidence: ${Math.round(bodyScan.confidence * 100)}%`;
+  if (bodyScan.confidence) {
+    document.getElementById("body-confidence").innerText =
+      `AI Confidence: ${Math.round(bodyScan.confidence * 100)}%`;
+  }
+
+  document.getElementById("ctaBodyShape").innerText =
+    bodyScan.body_shape?.primary || "unique";
 }
-
-document.getElementById("ctaBodyShape").innerText =
-  bodyScan.body_shape?.primary || "unique";
 
 // Skin
 if (skinScan?.skin_tone) {
@@ -131,9 +134,6 @@ function renderSwatches(containerId, colors) {
 /* ======================================================
    4. NAVIGATION
 ====================================================== */
-function continueJourney() {
-  window.location.href = "/pages/recommendations.html";
-}
 function continueJourney() {
   window.location.href = "/pages/recommendations.html";
 }

@@ -1,5 +1,5 @@
 //function sayHi(name) {
-   // console.log("Hey " + name + "! Ready to build your AI scanner?");
+// console.log("Hey " + name + "! Ready to build your AI scanner?");
 //}
 //sayHi("Diya");
 
