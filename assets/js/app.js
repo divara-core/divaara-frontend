@@ -45,8 +45,8 @@ const STATE = {
 
 // Race Condition Lock
 let MODE_LOCK = false;
-// ✅ STEP 2: Railway backend base URL (https, no trailing slash)
-const API_BASE = "https://api.divaara.com/api";
+const IS_LOCAL = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+const API_BASE = IS_LOCAL ? "http://localhost:8000/api" : "/api";
 const CONFIG = {
     body: {
         apiEndpoint: `${API_BASE}/analyze-body`,
