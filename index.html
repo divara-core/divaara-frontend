@@ -27,7 +27,7 @@
 
     <a onclick="selectGender('male')" class="flex justify-start group">
       <div class="relative w-[320px] h-[520px] rounded-2xl overflow-hidden transition duration-500 group-hover:scale-[1.02]">
-        <img src="/divaara-frontend/assets/images/male.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500" />
+        <img src="/assets/images/male.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500" />
         <div class="absolute inset-0 bg-black/25 flex flex-col items-center justify-end pb-7 opacity-0 group-hover:opacity-100 transition">
           <span class="tracking-[0.3em] text-xs text-[#D4AF37]">MEN</span>
           <span class="mt-1 text-[11px] text-gray-300">Fit · Style · Grooming</span>
@@ -38,7 +38,7 @@
     
 
     <div class="flex flex-col items-center text-center justify-center">
-      <img src="/divaara-frontnend/assets/images/divaara-logo.png" class="w-32 mb-7" />
+      <img src="/assets/images/divaara-logo.png" class="w-32 mb-7" />
       <h1 class="text-[44px] font-serif text-[#D4AF37] leading-tight tracking-wide">
         AI That Frames <br> Royalty
       </h1>
@@ -54,7 +54,7 @@
 
     <a onclick="selectGender('female')" class="flex justify-end group">
       <div class="relative w-[320px] h-[520px] rounded-2xl overflow-hidden transition duration-500 group-hover:scale-[1.02]">
-        <img src="/divaara-frontend/assets/images/female.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500" />
+        <img src="/assets/images/female.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500" />
         <div class="absolute inset-0 bg-black/25 flex flex-col items-center justify-end pb-7 opacity-0 group-hover:opacity-100 transition">
           <span class="tracking-[0.3em] text-xs text-[#D4AF37]">WOMEN</span>
           <span class="mt-1 text-[11px] text-gray-300">Fit · Style · Beauty</span>
@@ -64,7 +64,7 @@
   </div>
 
   <div class="md:hidden px-6 py-10 flex flex-col items-center text-center fade">
-    <img src="/divaara-frontend/assets/images/divaara-logo.png" class="w-28 mb-5" />
+    <img src="/assets/images/divaara-logo.png" class="w-28 mb-5" />
     <h1 class="text-3xl font-serif text-[#D4AF37] leading-tight">AI That Frames Royalty</h1>
     <p class="mt-4 text-sm text-gray-300 leading-relaxed max-w-sm">Built with advanced AI & computer vision</p>
     
@@ -72,7 +72,7 @@
 
     <a onclick="selectGender('male')" class="w-full mt-6 block">
       <div class="relative h-[340px] rounded-2xl overflow-hidden">
-        <img src="/divaara-frontend/assets/images/male.jpg" class="w-full h-full object-cover" />
+        <img src="/assets/images/male.jpg" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-black/30 flex flex-col items-center justify-end pb-5">
           <span class="tracking-[0.3em] text-xs text-[#D4AF37]">MEN</span>
         </div>
@@ -81,7 +81,7 @@
 
     <a onclick="selectGender('female')" class="w-full mt-7 block">
       <div class="relative h-[340px] rounded-2xl overflow-hidden">
-        <img src="/divaara-frontend/assets/images/female.jpg" class="w-full h-full object-cover" />
+        <img src="/assets/images/female.jpg" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-black/30 flex flex-col items-center justify-end pb-5">
           <span class="tracking-[0.3em] text-xs text-[#D4AF37]">WOMEN</span>
         </div>
@@ -92,15 +92,10 @@
   </div>
 </section>
 
-<script>
-  function selectGender(gender) {
-    // Save state for the rest of the application
-    localStorage.setItem("divaara.gender", gender);
-
-    // Navigate to the single source of truth for scanning
-    window.location.href = "/divaara-frontend/pages/main.html";
-  }
-</script>
+<script> 
+function selectGender(gender) { 
+  // Save state for the rest of the application localStorage.setItem("divaara.gender", gender); // Navigate to the single source of truth for scanning 
+  window.location.href = "/pages/main.html"; } </script>
 
 </body>
 </html>
