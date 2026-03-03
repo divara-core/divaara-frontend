@@ -1,57 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>DIVAARA – AI Fit Scan</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIVAARA - Choose Your Experience</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            bg: '#F5EFE6',
+                            text: '#1C1A17',
+                            gold: '#C2A65A',
+                            border: '#E6DDC8',
+                            featured: '#FCF8F1'
+                        }
+                    },
+                    fontFamily: {
+                        playfair: ['"Playfair Display"', 'serif'],
+                        inter: ['"Inter"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Tailwind base overrides for strict text colors */
+        body {
+            color: #1C1A17;
+            background-color: #f8c77e;
+            font-family: "Inter", sans-serif;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Playfair Display", serif;
+        }
+    </style>
 </head>
+<body class="min-h-screen flex flex-col pt-8 pb-4 px-6 md:pt-16 md:px-12 lg:px-24">
 
-<body class="bg-black text-white h-screen flex items-center justify-center">
+    <header class="mb-12 md:mb-16">
+        <div class="text-[0.7rem] uppercase tracking-[0.2em] font-medium text-brand-text mb-8">
+            DIVAARA
+        </div>
+        
+        <h1 class="text-3xl md:text-5xl lg:text-6xl font-normal leading-tight mb-6 text-brand-text max-w-2xl">
+            Choose Your Styling Experience
+        </h1>
+        
+        <div class="h-px w-[60px] bg-brand-gold"></div>
+    </header>
 
-  <!-- CENTER CARD -->
-  <div class="w-[360px] max-w-full px-6 text-center">
+    <main class="flex-grow flex flex-col gap-6 md:gap-8 max-w-[900px]">
+        
+        <a href="main.html" class="block group relative bg-transparent border border-brand-border rounded-[24px] p-6 md:p-10 transition-all duration-500 ease-out hover:-translate-y-1 hover:border-brand-gold">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div class="space-y-2">
+                    <h2 class="text-xl md:text-2xl font-medium text-brand-text">AI Couture Scan</h2>
+                    <p class="text-sm md:text-base font-light text-brand-text/80 tracking-wide">
+                        Full automatic body analysis and color analysis.
+                    </p>
+                </div>
+                <div class="flex items-center text-sm md:text-base font-medium tracking-wide text-brand-text group-hover:text-brand-gold transition-colors duration-300">
+                    Begin Scan <span class="ml-2 transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+                </div>
+            </div>
+        </a>
 
-    <!-- BRAND -->
-    <h1 class="text-3xl font-semibold tracking-tight mb-3">
-      DIVAARA
-    </h1>
+        <a href="manual-shape.html" class="block group relative bg-transparent border border-brand-border rounded-[24px] p-6 md:p-10 transition-all duration-500 ease-out hover:-translate-y-1 hover:border-brand-gold">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div class="space-y-2">
+                    <h2 class="text-xl md:text-2xl font-medium text-brand-text">Manual Selection</h2>
+                    <p class="text-sm md:text-base font-light text-brand-text/80 tracking-wide">
+                        Choose your proportions and tone.
+                    </p>
+                </div>
+                <div class="flex items-center text-sm md:text-base font-medium tracking-wide text-brand-text group-hover:text-brand-gold transition-colors duration-300">
+                    Select Manually <span class="ml-2 transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+                </div>
+            </div>
+        </a>
 
-    <p class="text-sm text-neutral-400 mb-10">
-      AI Fit & Style Scanner
-    </p>
+        <a href="main.html?mode=body" class="block group relative bg-brand-featured border border-brand-border rounded-[24px] p-6 md:p-10 transition-all duration-500 ease-out hover:-translate-y-1 hover:border-brand-gold overflow-hidden">
+            <div class="absolute top-0 left-0 w-1 h-full bg-brand-gold opacity-60"></div>
+            
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pl-2 md:pl-4">
+                <div class="space-y-2">
+                    <div class="flex items-center gap-3 mb-1">
+                        <h2 class="text-xl md:text-2xl font-medium text-brand-text">AI + Review</h2>
+                        <span class="text-[0.65rem] uppercase tracking-widest text-brand-gold border border-brand-gold/30 px-2 py-0.5 rounded-full">Featured</span>
+                    </div>
+                    <p class="text-sm md:text-base font-light text-brand-text/80 tracking-wide">
+                        Let AI analyze. Refine with confirmation.
+                    </p>
+                </div>
+                <div class="flex items-center text-sm md:text-base font-medium tracking-wide text-brand-text group-hover:text-brand-gold transition-colors duration-300">
+                    Smart + Review <span class="ml-2 transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+                </div>
+            </div>
+        </a>
 
-    <!-- VALUE TEXT -->
-    <div class="space-y-3 mb-12">
-      <p class="text-base">
-        Get your body fit profile in under 10 seconds
-      </p>
+    </main>
 
-      <p class="text-xs text-neutral-400 leading-relaxed">
-        No photos are stored.  
-        Scan happens securely and privately.
-      </p>
-    </div>
-
-    <!-- SCAN BUTTON -->
-    <button
-      id="startScan"
-      class="w-full py-4 rounded-2xl bg-white text-black font-semibold text-base active:scale-95 transition">
-      Start Scan
-    </button>
-
-    <!-- CAMERA NOTE -->
-    <p class="text-xs text-neutral-500 mt-6">
-      Camera access required
-    </p>
-
-  </div>
-
-<script>
-  // ONLY REDIRECT — NOTHING ELSE
-  document.getElementById("startScan").addEventListener("click", () => {
-    window.location.href = "/pages/main.html";
-  });
-</script>
+    <footer class="mt-16 md:mt-24 pb-4">
+        <p class="text-[0.7rem] font-light tracking-wide text-brand-text/50">
+            Images are processed securely in real time. Nothing is stored.
+        </p>
+    </footer>
 
 </body>
 </html>
