@@ -68,61 +68,85 @@
             </div>
         </div>
     </div>
+<div class="max-w-4xl mx-auto fade">
+    <div class="flex flex-col items-center text-center mb-12">
+        <h1 class="text-4xl serif text-[#D4AF37] tracking-wide">
+            Pick your Skintone & Undertone
+        </h1>
+        <p class="mt-2 text-[10px] tracking-[0.3em] text-gray-500 uppercase">
+            Manual Override & Precision Tuning
+        </p>
+    </div>
 
-      <div class="max-w-4xl mx-auto fade">
-        <div class="flex flex-col items-center text-center mb-12">
-            
-            <h1 class="text-4xl serif text-[#D4AF37] tracking-wide">Refine Your Silhouette</h1>
-            <p class="mt-2 text-[10px] tracking-[0.3em] text-gray-500 uppercase">Manual Override & Precision Tuning</p>
+    <div class="grid md:grid-cols-2 gap-8 items-start">
+
+        <!-- LEFT SIDE -->
+        <div class="bg-white/5 backdrop-blur-sm p-8 rounded-2xl gold-border">
+
+            <!-- SKIN TONE -->
+            <h3 class="text-[#D4AF37] text-sm tracking-widest font-bold uppercase mb-6">
+                Skin Tone
+            </h3>
+
+            <div class="grid grid-cols-5 gap-4 mb-10">
+                <div onclick="selectTone('#F6D7C3')" class="w-12 h-12 rounded-full cursor-pointer border border-white/10 hover:scale-110 transition" style="background:#F6D7C3"></div>
+                <div onclick="selectTone('#E8B89C')" class="w-12 h-12 rounded-full cursor-pointer border border-white/10 hover:scale-110 transition" style="background:#E8B89C"></div>
+                <div onclick="selectTone('#D39B75')" class="w-12 h-12 rounded-full cursor-pointer border border-white/10 hover:scale-110 transition" style="background:#D39B75"></div>
+                <div onclick="selectTone('#B87352')" class="w-12 h-12 rounded-full cursor-pointer border border-white/10 hover:scale-110 transition" style="background:#B87352"></div>
+                <div onclick="selectTone('#8A4F39')" class="w-12 h-12 rounded-full cursor-pointer border border-white/10 hover:scale-110 transition" style="background:#8A4F39"></div>
+            </div>
+
+            <!-- UNDERTONE -->
+            <h3 class="text-[#D4AF37] text-sm tracking-widest font-bold uppercase mb-6">
+                Undertone
+            </h3>
+
+            <div class="space-y-4">
+                <button onclick="selectUndertone('Warm')" class="undertoneBtn w-full border border-white/10 p-3 rounded-xl text-xs tracking-[0.2em] hover:border-[#D4AF37] transition">
+                    WARM
+                </button>
+                <button onclick="selectUndertone('Cool')" class="undertoneBtn w-full border border-white/10 p-3 rounded-xl text-xs tracking-[0.2em] hover:border-[#D4AF37] transition">
+                    COOL
+                </button>
+                <button onclick="selectUndertone('Neutral')" class="undertoneBtn w-full border border-white/10 p-3 rounded-xl text-xs tracking-[0.2em] hover:border-[#D4AF37] transition">
+                    NEUTRAL
+                </button>
+                <button onclick="selectUndertone('Olive')" class="undertoneBtn w-full border border-white/10 p-3 rounded-xl text-xs tracking-[0.2em] hover:border-[#D4AF37] transition">
+                    OLIVE
+                </button>
+            </div>
+
         </div>
 
-        <div class="grid md:grid-cols-2 gap-8 items-start">
+        <!-- RIGHT SIDE RESULT -->
+        <div id="resultBox" class="flex flex-col bg-white/5 backdrop-blur-md p-8 rounded-2xl gold-border border-t-4 border-t-[#D4AF37]">
             
-            <div class="bg-white/5 backdrop-blur-sm p-8 rounded-2xl gold-border">
-                <h3 class="text-[#D4AF37] text-sm tracking-widest font-bold uppercase mb-8">Dimensions</h3>
-                <div class="space-y-6">
-                    <div>
-                        <label class="text-[10px] tracking-[0.2em] text-gray-500 uppercase mb-2 block ml-1">Shoulder Width</label>
-                        <input type="number" id="shoulder" step="0.1" class="w-full bg-black/50 border border-white/10 rounded-xl p-4 text-[#D4AF37] outline-none focus:border-[#D4AF37]" />
-                    </div>
-                    <div>
-                        <label class="text-[10px] tracking-[0.2em] text-gray-500 uppercase mb-2 block ml-1">Waist Width</label>
-                        <input type="number" id="waist" step="0.1" class="w-full bg-black/50 border border-white/10 rounded-xl p-4 text-[#D4AF37] outline-none focus:border-[#D4AF37]" />
-                    </div>
-                    <div>
-                        <label class="text-[10px] tracking-[0.2em] text-gray-500 uppercase mb-2 block ml-1">Hip Width</label>
-                        <input type="number" id="hips" step="0.1" class="w-full bg-black/50 border border-white/10 rounded-xl p-4 text-[#D4AF37] outline-none focus:border-[#D4AF37]" />
-                    </div>
-                    <button onclick="calculateShape()" class="w-full bg-[#D4AF37] text-black font-bold py-4 rounded-xl tracking-[0.2em] hover:bg-[#E6D8A3] transition-all text-xs">
-                        RE-ANALYZE SHAPE
-                    </button>
-                </div>
+            <div class="text-center mb-8">
+                <span class="text-[10px] tracking-[0.4em] text-gray-500 uppercase">
+                    Selection Result
+                </span>
+
+                <div id="tonePreview" class="w-24 h-24 rounded-full mx-auto mt-6 border-2 border-[#D4AF37]"></div>
+
+                <h2 id="undertoneResult" class="text-3xl serif text-[#D4AF37] mt-6 italic">
+                    ---
+                </h2>
+
+                <p class="text-xs tracking-widest text-gray-400 italic mt-2">
+                    Palette locked & ready for recommendations
+                </p>
             </div>
 
-            <div id="resultBox" class="flex flex-col bg-white/5 backdrop-blur-md p-8 rounded-2xl gold-border border-t-4 border-t-[#D4AF37]">
-                <div class="text-center mb-8">
-                    <span class="text-[10px] tracking-[0.4em] text-gray-500 uppercase">Analysis Result</span>
-                    <h2 id="shapeResult" class="text-5xl serif text-[#D4AF37] mt-4 mb-2 italic">---</h2>
-                    <p id="secondaryShape" class="text-xs tracking-widest text-gray-400 italic">Calculating ratios...</p>
-                </div>
-
-                <div class="space-y-6 pt-6 border-t border-white/10">
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-black/30 p-4 rounded-xl border border-white/5">
-                            <p class="text-[9px] text-gray-500 tracking-widest uppercase mb-1">Shoulder:Hip</p>
-                            <p id="srValue" class="text-xl text-[#D4AF37] font-light">--</p>
-                        </div>
-                        <div class="bg-black/30 p-4 rounded-xl border border-white/5">
-                            <p class="text-[9px] text-gray-500 tracking-widest uppercase mb-1">Waist:Hip</p>
-                            <p id="wrValue" class="text-xl text-[#D4AF37] font-light">--</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
-    
+</div>
     <script>
+
+        let selectedGender = localStorage.getItem("divaara.gender");
+
+if (!selectedGender) {
+    window.location.href = "/";
+}
         // Internal logic to handle the UI calculation
         function calculateShape() {
             const sh = parseFloat(document.getElementById('shoulder').value);
@@ -135,31 +159,115 @@
             const WR = wa / hi; 
             const SW = sh / wa;
 
-            let primary = "Rectangle";
-            let secondary = "Balanced";
+            let primary = "";
+let secondary = "";
 
-            // Thresholds matching your Python Backend logic
-            if (Math.abs(SR - 1.0) <= 0.08 && WR <= 0.75) {
-                primary = "Hourglass";
-                secondary = (SR < 1.0) ? "Pear-leaning" : "Top-leaning";
-            } 
-            else if (Math.abs(SR - 1.0) <= 0.10 && Math.abs(WR - 1.0) <= 0.10) {
-                primary = "Rectangle";
-                secondary = "Linear Taper";
-            } 
-            else if (SR >= 1.12 && WR >= 0.85) {
-                primary = "Inverted Triangle";
-                secondary = "Athletic Frame";
-            } 
-            else if (SR <= 0.90 && WR <= 0.85) {
-                primary = "Pear";
-                secondary = "Curved Base";
-            } 
-            else if (WR >= 1.05 && SW <= 1.05) {
-                primary = "Apple";
-                secondary = "Oval Frame";
-            }
+if (selectedGender === "female") {
 
+    if (Math.abs(SR - 1.0) <= 0.08 && WR <= 0.75) {
+        primary = "Hourglass";
+        secondary = "Balanced Curves";
+    } 
+    else if (SR <= 0.90) {
+        primary = "Pear";
+        secondary = "Curved Base";
+    } 
+    else if (SR >= 1.12) {
+        primary = "Inverted Triangle";
+        secondary = "Athletic Frame";
+    } 
+    else if (WR >= 1.05) {
+        primary = "Apple";
+        secondary = "Oval Frame";
+    } 
+    else {
+        primary = "Rectangle";
+        secondary = "Linear Taper";
+    }
+
+} else {
+
+    if (SR >= 1.15 && WR <= 0.85) {
+        primary = "V Shape";
+        secondary = "Broad Shoulders";
+    } 
+    else if (WR >= 1.0) {
+        primary = "Oval";
+        secondary = "Central Build";
+    } 
+    else if (SR < 1.0) {
+        primary = "Triangle";
+        secondary = "Lower Heavy Frame";
+    } 
+    else {
+        primary = "Rectangle";
+        secondary = "Balanced Frame";
+    }
+
+}
+
+            function calculateShape() {
+    const sh = parseFloat(document.getElementById('shoulder').value);
+    const wa = parseFloat(document.getElementById('waist').value);
+    const hi = parseFloat(document.getElementById('hips').value);
+
+    if (!sh || !wa || !hi) return;
+
+    const SR = sh / hi; 
+    const WR = wa / hi; 
+
+    let primary = "";
+    let secondary = "";
+
+    if (selectedGender === "female") {
+
+        if (Math.abs(SR - 1.0) <= 0.08 && WR <= 0.75) {
+            primary = "Hourglass";
+            secondary = "Balanced Curves";
+        } 
+        else if (SR <= 0.90) {
+            primary = "Pear";
+            secondary = "Curved Base";
+        } 
+        else if (SR >= 1.12) {
+            primary = "Inverted Triangle";
+            secondary = "Athletic Frame";
+        } 
+        else if (WR >= 1.05) {
+            primary = "Apple";
+            secondary = "Oval Frame";
+        } 
+        else {
+            primary = "Rectangle";
+            secondary = "Linear Taper";
+        }
+
+    } else {
+
+        if (SR >= 1.15 && WR <= 0.85) {
+            primary = "V Shape";
+            secondary = "Broad Shoulders";
+        } 
+        else if (WR >= 1.0) {
+            primary = "Oval";
+            secondary = "Central Build";
+        } 
+        else if (SR < 1.0) {
+            primary = "Triangle";
+            secondary = "Lower Heavy Frame";
+        } 
+        else {
+            primary = "Rectangle";
+            secondary = "Balanced Frame";
+        }
+
+    }
+
+    document.getElementById('shapeResult').innerText = primary;
+    document.getElementById('secondaryShape').innerText = `Secondary: ${secondary}`;
+    document.getElementById('srValue').innerText = SR.toFixed(2);
+    document.getElementById('wrValue').innerText = WR.toFixed(2);
+}
             document.getElementById('shapeResult').innerText = primary;
             document.getElementById('secondaryShape').innerText = `Secondary: ${secondary}`;
             document.getElementById('srValue').innerText = SR.toFixed(2);
@@ -167,6 +275,20 @@
         }
     </script>
 
+<script>
+let selectedTone = null;
+let selectedUndertone = null;
+
+function selectTone(color) {
+    selectedTone = color;
+    document.getElementById("tonePreview").style.background = color;
+}
+
+function selectUndertone(type) {
+    selectedUndertone = type;
+    document.getElementById("undertoneResult").innerText = type + " Undertone";
+}
+</script>
     
 </body>
 </html>

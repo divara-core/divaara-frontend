@@ -86,25 +86,7 @@
             </div>
         </a>
 
-        <a href="main.html?mode=body" class="block group relative bg-brand-featured border border-brand-border rounded-[24px] p-6 md:p-10 transition-all duration-500 ease-out hover:-translate-y-1 hover:border-brand-gold overflow-hidden">
-            <div class="absolute top-0 left-0 w-1 h-full bg-brand-gold opacity-60"></div>
-            
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pl-2 md:pl-4">
-                <div class="space-y-2">
-                    <div class="flex items-center gap-3 mb-1">
-                        <h2 class="text-xl md:text-2xl font-medium text-brand-text">AI + Review</h2>
-                        <span class="text-[0.65rem] uppercase tracking-widest text-brand-gold border border-brand-gold/30 px-2 py-0.5 rounded-full">Featured</span>
-                    </div>
-                    <p class="text-sm md:text-base font-light text-brand-text/80 tracking-wide">
-                        Let AI analyze. Refine with confirmation.
-                    </p>
-                </div>
-                <div class="flex items-center text-sm md:text-base font-medium tracking-wide text-brand-text group-hover:text-brand-gold transition-colors duration-300">
-                    Smart + Review <span class="ml-2 transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
-                </div>
-            </div>
-        </a>
-
+        
     </main>
 
     <footer class="mt-16 md:mt-24 pb-4">
@@ -112,6 +94,36 @@
             Images are processed securely in real time. Nothing is stored.
         </p>
     </footer>
+
+    <script>
+    const selectedGender = localStorage.getItem("divaara.gender");
+
+    if (!selectedGender) {
+        window.location.href = "/divaara-frontend/index.html";
+    }
+
+    // Change headline subtly
+    const mainTitle = document.querySelector("h1");
+
+    if (selectedGender === "male") {
+        mainTitle.innerText = "Choose Your Men's Styling Experience";
+    } else {
+        mainTitle.innerText = "Choose Your Women's Styling Experience";
+    }
+
+    // Optional: change subtexts slightly
+    const descriptions = document.querySelectorAll("main p");
+
+    if (selectedGender === "male") {
+        descriptions[0].innerText = "Full automatic body structure and fit analysis.";
+        descriptions[1].innerText = "Select proportions manually for tailored fit logic.";
+        descriptions[2].innerText = "AI-driven masculine silhouette refinement.";
+    } else {
+        descriptions[0].innerText = "Full automatic body and color harmony analysis.";
+        descriptions[1].innerText = "Choose your proportions and undertone precisely.";
+        descriptions[2].innerText = "AI-driven curve-aware refinement.";
+    }
+</script>
 
 </body>
 </html>
